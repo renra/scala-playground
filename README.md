@@ -1,1 +1,3 @@
-# scala-playground
+# Scala Playground
+
+Nothing fancy
