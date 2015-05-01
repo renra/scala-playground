@@ -4,11 +4,11 @@ object CurryingExercise extends App {
       incrementFunction: Int => Int,
       comparingFunction: (Int, Int) => Boolean,
       accummulationFunction: (Int, Int) => Int,
-      projectionFunction: Int => Int
+      projectionFunction: Int => Int,
+      initialValue: Int
     )(
       lowerBound: Int,
-      upperBound: Int,
-      initialValue: Int
+      upperBound: Int
     ): Int =
   {
 
@@ -27,23 +27,23 @@ object CurryingExercise extends App {
   def addingOneOnIncrement
     (
       accummulationFunction: (Int, Int) => Int,
-      projectionFunction: Int => Int
+      projectionFunction: Int => Int,
+      initialValue: Int
     )
     (
       lowerBound: Int,
-      upperBound: Int,
-      initialValue: Int
+      upperBound: Int
     ): Int =
   {
     operate(
         x => x+1,
         (x,y) => x > y,
         accummulationFunction,
-        projectionFunction
+        projectionFunction,
+        initialValue
       )(
         lowerBound,
-        upperBound,
-        initialValue
+        upperBound
       )
   }
 
@@ -57,11 +57,11 @@ object CurryingExercise extends App {
   {
     addingOneOnIncrement(
         (x,y) => x+y,
-        projectionFunction
+        projectionFunction,
+        0
       )(
         lowerBound,
-        upperBound,
-        0
+        upperBound
       )
   }
 
@@ -75,11 +75,11 @@ object CurryingExercise extends App {
   {
     addingOneOnIncrement(
         (x,y) => x*y,
-        projectionFunction
+        projectionFunction,
+        1
       )(
         lowerBound,
-        upperBound,
-        1
+        upperBound
       )
   }
 
